@@ -1,0 +1,29 @@
+<h1 id="tableLabel">Text metrics</h1>
+
+<p>This component demonstrates text metrics from the server.</p>
+
+<form class="form-group" [formGroup]="textAndTypeForm" (ngSubmit)="submit()">
+  <div class="metric-select-form">
+    <label for="selectForm">Select metric type</label>
+    <select id="selectForm" class="form-select" formControlName="metricType">
+      <option *ngFor="let type of metricTypes">
+        {{type}}
+      </option>
+    </select>
+  </div>
+
+  <div class="flex">
+    <label for="textAreaForm">Write your text</label>
+    <textarea class="form-control" ngDefaultControl id="textAreaForm" type="text" formControlName="text"></textarea>
+  </div>
+  <button class="btn btn-primary metric-button" type="submit">Submit</button>
+</form>
+
+<div *ngIf="textResult">
+  <div>
+    You choosen {{textResult.metricType}}    
+  </div>
+  <div>
+    Result is: {{textResult.metricResult}}    
+  </div>
+</div>
